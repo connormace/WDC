@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <title>Google Places WDC</title>
+    <meta http-equiv="Cache-Control" content="no-store" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>  
+
+    <script src="https://connectors.tableau.com/libs/tableauwdc-2.2.latest.js" type="text/javascript"></script> 
+	<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDHidNqZBKYNukwCmrrk4Tz4_BzGBds-30" type="text/javascript"></script>
+
+    <script src="places.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<ul class="form-style-1">
+
+	<h2>Google Places API Web Data Connector</h2>
+	<h6>Pick a starting point, radius and place type to get a list of places around the starting point.</h6>
+	<h6>The data includes coordinates, name of the place, address, rating and price level if available.</h6>
+	<br>
+    <li>
+		<label><span class="required">*</span>Starting point</label>
+		<input type="text" name="field1" id="start" class="field-divided" value="O'Connell Street, Dublin, Ireland" />
+	</li>
+    <li>
+        <label><span class="required">*</span>Radius (in meters)</label>
+        <input type="number" name="field2" id="radius" value="1000" class="field-divided" />
+    </li>
+    <li>
+        <label><span class="required">*</span>Type of place</label>
+        <select name="field3" class="field-select" id="type">
+			<option value="restaurant">Restaurants</option>
+			<option value="cafe">Cafes</option>
+			<option value="store">Shops</option>
+			<option value="movie_theater">Cinemas</option>
+			<option value="post_office">Post offices</option>
+			<option value="atm">ATMs</option>
+			<option value="bank">Banks</option>
+			<option value="bus_station">Bus stations</option>
+			<option value="pharmacy">Pharmacies</option>
+			<option value="park">Parks</option>
+			<option value="hospital">Hospitals</option>
+			<option value="library">Libraries</option>
+			<option value="lodging">Hotels</option>       		
+		</select>
+    </li>
+	<li>
+		<label class="italic">Alternatively, input another type.</label> 
+		<label class="italic">For a list of place types this API recognises see <a href="https://developers.google.com/places/web-service/supported_types?target=blank">HERE</a></label>
+		<input type="text" name="field4" id="type_manual" class="field-divided" placeholder="e.g. night_club" />
+	</li>
+	
+	<li>
+		<div id="error"></div>
+		<div id="map"></div> <!-- Needed only to initialise Google API PlacesService object -->
+	</li>
+	
+    <li>
+        <input type="submit" id="submitButton" value="Submit" />
+    </li>
+</ul>
+
+</body>
+
+</html>
